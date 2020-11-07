@@ -30,5 +30,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
+          build-args: |
+            PHP_VERSION=${{ matrix.version }}
           tags: |
             uogsoe/soe-php-apache:${{ matrix.version }}
