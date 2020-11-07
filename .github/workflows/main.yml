@@ -3,6 +3,8 @@ name: build-images
 on:
   push:
     branches: master
+  schedule:
+    - cron: "1 7 * * 6"
 
 jobs:
   multi:
@@ -30,6 +32,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
+          target: prod
           build-args: |
             PHP_VERSION=${{ matrix.version }}
           tags: |
