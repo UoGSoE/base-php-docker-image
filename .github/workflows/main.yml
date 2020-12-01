@@ -1,6 +1,7 @@
 name: build-images
 
 on:
+  push:
   schedule:
     - cron: '1 15 * * 6'
 
