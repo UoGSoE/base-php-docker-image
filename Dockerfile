@@ -4,7 +4,7 @@ FROM php:${PHP_VERSION}-apache as prod
 
 ARG PHP_VERSION
 ARG PHP_REDIS_VERSION=5.3.2
-ARG COMPOSER_VERSION=2.0.1
+ARG COMPOSER_VERSION=2.0.13
 
 LABEL org.opencontainers.image.source=https://github.com/UoGSoE/base-php-docker-image \
       org.opencontainers.image.vendor="University of Glasgow, School of Engineering" \
