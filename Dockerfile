@@ -76,4 +76,7 @@ RUN apt-get update \
     && make \
     && make install \
     && cd .. \
-    && rm -fr pcov*
+    && rm -fr pcov* \
+    && composer global require enlightn/security-checker \
+    && curl -OL -o /usr/local/bin/phpcs https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+
