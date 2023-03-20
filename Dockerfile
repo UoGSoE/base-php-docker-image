@@ -6,7 +6,7 @@ ARG PHP_VERSION
 ARG PHP_REDIS_VERSION=5.3.4
 ARG COMPOSER_VERSION=2.5.2
 
-LABEL org.opencontainers.image.source=https://github.com/UoGSoE/base-php-docker-image \
+LABEL org.opencontainers.image.source="https://github.com/UoGSoE/base-php-docker-image" \
       org.opencontainers.image.vendor="University of Glasgow, School of Engineering" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.title="PHP ${PHP_VERSION} + Apache" \

@@ -23,8 +23,11 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          # username: ${{ secrets.DOCKERHUB_USERNAME }}
+          # password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -36,4 +39,5 @@ jobs:
           build-args: |
             PHP_VERSION=${{ matrix.version }}
           tags: |
-            uogsoe/soe-php-apache:${{ matrix.version }}
+            ghcr.io/UoGSoE/soe-php-apache:${{ matrix.version }}
+
