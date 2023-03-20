@@ -39,5 +39,5 @@ jobs:
           build-args: |
             PHP_VERSION=${{ matrix.version }}
           tags: |
-            ghcr.io/UoGSoE/soe-php-apache:${{ matrix.version }}
+            ghcr.io/uogsoe/soe-php-apache:${{ matrix.version }}
 
