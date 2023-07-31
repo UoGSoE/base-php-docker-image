@@ -1,6 +1,6 @@
 ARG PHP_VERSION
 
-FROM php:${PHP_VERSION}-apache as prod
+FROM php:${PHP_VERSION}-apache-bullseye as prod
 
 ARG PHP_VERSION
 ARG PHP_REDIS_VERSION=5.3.4
