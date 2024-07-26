@@ -26,3 +26,8 @@ The script will by default build images for each PHP version in the `VERSIONS` a
 ## Github actions
 
 There is a workflow in the `.github/workflows/main.yml` which will rebuild these images and push them to docker hub on a schedule.  Currently set to do a fresh build every Sunday.
+
+## License
+
+MIT License
+
