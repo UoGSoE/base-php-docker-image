@@ -3,7 +3,7 @@ ARG PHP_VERSION
 FROM php:${PHP_VERSION}-apache-bullseye as prod
 
 ARG PHP_VERSION
-ARG PHP_REDIS_VERSION=5.3.4
+ARG PHP_REDIS_VERSION=6.2.0
 ARG COMPOSER_VERSION=2.5.2
 
 LABEL org.opencontainers.image.source="https://github.com/UoGSoE/base-php-docker-image" \
