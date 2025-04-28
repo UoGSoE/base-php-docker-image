@@ -25,7 +25,7 @@ RUN apt-get update \
     # install some OS packages we need
     && apt-get install -y --no-install-recommends tini libfreetype6-dev libjpeg62-turbo-dev libpng-dev libgmp-dev libldap2-dev netcat-openbsd curl sqlite3 libsqlite3-dev libzip-dev unzip vim-tiny gosu git \
     # install php extensions
-    && case "${PHP_VERSION}" in 7.4*|8.0*|8.1*|8.2*|8.3*) docker-php-ext-configure gd --with-freetype --with-jpeg ;; *) docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ ;; esac \
+    && case "${PHP_VERSION}" in 7.4*|8.*) docker-php-ext-configure gd --with-freetype --with-jpeg ;; *) docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ ;; esac \
     && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql pdo_sqlite zip gmp bcmath pcntl ldap sysvmsg exif \
     # install the redis php extension
     && pecl install redis-${PHP_REDIS_VERSION} \
