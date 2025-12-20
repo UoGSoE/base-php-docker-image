@@ -1,10 +1,10 @@
 ARG PHP_VERSION
 
-FROM php:${PHP_VERSION}-apache-bullseye as prod
+FROM php:${PHP_VERSION}-apache-trixie as prod
 
 ARG PHP_VERSION
 ARG PHP_REDIS_VERSION=6.2.0
-ARG COMPOSER_VERSION=2.8.9
+ARG COMPOSER_VERSION=2.8.12
 
 LABEL org.opencontainers.image.source="https://github.com/UoGSoE/base-php-docker-image" \
       org.opencontainers.image.vendor="University of Glasgow, School of Engineering" \
@@ -56,7 +56,7 @@ EXPOSE 80
 
 FROM prod as ci
 
-ARG PCOV_VERSION=1.0.11
+ARG PCOV_VERSION=1.0.12
 
 # The only additions for CI/QA is the 'pcov' extension by PHP internals developer
 # Joe Watkins (it provides code-coverage statistics without slowing down code.
@@ -76,7 +76,5 @@ RUN apt-get update \
     && make \
     && make install \
     && cd .. \
-    && rm -fr pcov* \
-    && composer global require enlightn/security-checker \
-    && curl -OL -o /usr/local/bin/phpcs https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+    && rm -fr pcov*
 
