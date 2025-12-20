@@ -1,9 +1,9 @@
-ARG PHP_VERSION
+ARG PHP_VERSION=8.5
 
-FROM php:${PHP_VERSION}-apache-trixie as prod
+FROM php:${PHP_VERSION}-apache-trixie AS prod
 
-ARG PHP_VERSION
-ARG PHP_REDIS_VERSION=6.2.0
+ARG PHP_VERSION=8.5
+ARG PHP_REDIS_VERSION=6.3.0
 ARG COMPOSER_VERSION=2.8.12
 
 LABEL org.opencontainers.image.source="https://github.com/UoGSoE/base-php-docker-image" \
@@ -54,14 +54,14 @@ COPY uploads.ini timezone.ini /usr/local/etc/php/conf.d/
 # and expose apache to docker
 EXPOSE 80
 
-FROM prod as ci
+FROM prod AS ci
 
 ARG PCOV_VERSION=1.0.12
 
 # The only additions for CI/QA is the 'pcov' extension by PHP internals developer
 # Joe Watkins (it provides code-coverage statistics without slowing down code.
 # https://github.com/krakjoe/pcov)
-ENV DRIVER pcov
+ENV DRIVER=pcov
 # pecl install currently commented out as no pre-built package for ARM
 #RUN pecl install pcov \
 #    && docker-php-ext-enable pcov \
