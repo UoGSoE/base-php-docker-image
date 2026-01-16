@@ -1,6 +1,6 @@
 ARG PHP_VERSION=8.5
 
-FROM php:${PHP_VERSION}-apache-bookworm AS prod
+FROM php:${PHP_VERSION}-apache-bullseye AS prod
 
 ARG PHP_VERSION=8.5
 ARG PHP_REDIS_VERSION=6.3.0
