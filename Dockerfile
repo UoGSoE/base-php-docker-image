@@ -4,7 +4,7 @@ FROM php:${PHP_VERSION}-apache-bullseye AS prod
 
 ARG PHP_VERSION=8.5
 ARG PHP_REDIS_VERSION=6.3.0
-ARG COMPOSER_VERSION=2.9.8
+ARG COMPOSER_VERSION=2.10.0
 
 LABEL org.opencontainers.image.source="https://github.com/UoGSoE/base-php-docker-image" \
       org.opencontainers.image.vendor="University of Glasgow, School of Engineering" \
